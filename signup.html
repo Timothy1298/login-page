@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Management Sign Up</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <img src="financial.png" alt="Financial Management" />
+      </div>
+      <div class="right">
+        <div class="signup-box">
+          <h3>Create Your Account</h3>
+          <form action="#" method="POST">
+            <div class="input-box">
+              <i class="fas fa-user"></i><img src="user.png" alt="" />
+              <input
+                type="text"
+                name="fullname"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <i class="fas fa-phone"></i><img src="phone.png" alt="" />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <i class="fas fa-envelope"></i><img src="email.png" alt="" />
+              <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="input-box">
+              <i class="fas fa-lock"></i><img src="padlock.png" alt="" />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+                oninput="checkStrength()"
+              />
+              <i
+                class="fas fa-eye toggle-password"
+                onclick="togglePassword()"
+              ></i>
+              
+            </div>
+            <div class="input-box">
+              <i class="fas fa-lock"></i><img src="padlock.png" alt="" />
+              <input
+                type="password"
+                name="confirm_password"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn" onclick="showLoader()">
+              Create Account
+            </button>
+            <div class="loader" id="loader"></div>
+
+            <div class="redirect-login">
+              <p>
+                Already have an account? <a href="index.html">Login here</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function togglePassword() {
+        var passwordInput = document.getElementById("password");
+        var toggleIcon = document.querySelector(".toggle-password");
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          toggleIcon.classList.remove("fa-eye");
+          toggleIcon.classList.add("fa-eye-slash");
+        } else {
+          passwordInput.type = "password";
+          toggleIcon.classList.remove("fa-eye-slash");
+          toggleIcon.classList.add("fa-eye");
+        }
+      }
+
+      function checkStrength() {
+        var password = document.getElementById("password").value;
+        var strengthBar = document.getElementById("strength-bar");
+        if (password.length > 8) {
+          strengthBar.className = "strong";
+        } else if (password.length > 5) {
+          strengthBar.className = "medium";
+        } else {
+          strengthBar.className = "weak";
+        }
+      }
+
+      function showLoader() {
+        document.getElementById("loader").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "none";
+          alert("Account Created Successfully!");
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

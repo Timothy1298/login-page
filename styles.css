@@ -1,0 +1,395 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in-out forwards;
+  height: 100vh;
+  background: url("login.jpg") no-repeat center center/cover;
+
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+.container {
+  display: flex;
+  width: 1000px;
+  height: 600px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+}
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #4a148c, #7b1fa2);
+}
+.left img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+}
+.right {
+  flex: 1;
+  background: whitesmoke;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-box h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border: 1px solid #e1e1e1; /* Light border */
+    transition: all 0.3s ease;
+  }
+  .login-box:focus-within {
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow on focus */
+    border: 1px solid #7b1fa2; /* Border color changes when any input is focused */
+  }
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  padding-left: 40px;  /* Adjusted for icon space */
+  padding-right: 40px; /* Adjusted for the eye icon or other elements */
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensures padding doesn't affect input width */
+}
+
+.input-box i, .input-box img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 16px;
+}
+
+.input-box i {
+  left: 10px; /* Left icon (e.g., user or lock icon) */
+}
+
+.input-box img {
+  left: 10px;  /* Image will be aligned with the icon */
+  width: 20px; /* Adjust size of the image */
+  height: 20px;
+}
+
+.input-box .toggle-password {
+  right: 10px; /* Right side for the password visibility toggle */
+  cursor: pointer;
+}
+.input-box input:focus {
+    border: 1px solid #7b1fa2; /* Focus border color */
+    box-shadow: 0 0 8px rgba(123, 31, 162, 0.4); /* Focus glow */
+  }
+
+#strength-bar {
+  margin-top: 5px;
+  height: 5px;
+  background-color: #ddd;
+  border-radius: 2px;
+  width: 100%;
+  display: none; /* Initially hidden */
+}
+
+  
+
+  .weak {
+    background: red;
+  }
+  
+  .medium {
+    background: yellow;
+  }
+  
+  .strong {
+    background: green;
+  }
+  
+  .input-box input:focus {
+    border-image: linear-gradient(45deg, #e91e63, #7b1fa2);
+    border-image-slice: 1;
+    box-shadow: 0px 0px 8px rgba(123, 31, 162, 0.6);
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .input-box input:focus ~ .toggle-password {
+    color: #7b1fa2;
+  }
+  
+  .error {
+    animation: shake 0.3s ease-in-out;
+    border: 2px solid red !important;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+  
+  [data-tooltip] {
+    position: relative;
+    cursor: help;
+  }
+  
+  [data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+.loader {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-top: 3px solid transparent;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: 10px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 12px;
+  width: 100%;
+  padding: 10px 0;
+}
+
+
+
+.remember input {
+  appearance: none;
+
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+.remember input:checked {
+  background: #e91e63;
+  border-color: #e91e63;
+}
+.btn {
+  width: 80%;
+  padding: 10px;
+  background: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bolder;
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.btn.signup {
+  width: 80%;
+  padding: 10px;
+  background: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 14px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.signup {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bolder;
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+  .left {
+    padding: 20px;
+  }
+  .right {
+    padding: 30px;
+  }
+}
+img {
+  width: 24px;
+}
+.forgot-password {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect - Changes color */
+.forgot-password:hover {
+  color: #ff4081;
+  text-decoration: underline;
+}
+
+/* Click effect - Slight opacity reduction */
+.forgot-password:active {
+  opacity: 0.7;
+}
+
+/* Hover effect - Changes button color */
+.btn:hover {
+  background: #c2185b;
+  transform: translateY(-3px);
+}
+
+/* Active effect - When clicked */
+.btn:active {
+  background: #7b1fa2;
+  transform: scale(0.95);
+  box-shadow: none; /* Shrinks slightly */
+}
+
+/* Sign-Up Button Styling (same as Login) */
+
+/* Hover effect - Changes button color */
+.signup-btn:hover {
+  background: #6a1b9a;
+}
+
+/* Active effect - When clicked */
+.signup-btn:active {
+  background: #9c27b0;
+  transform: scale(0.95); /* Shrinks slightly */
+}
+
+/* Hover effect - Highlights input field */
+.input-box input:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.input-box input:hover::after {
+    opacity: 1;
+}
+
+/* Active effect - When clicked */
+.input-box input:focus {
+  border-image: linear-gradient(45deg, #e91e63, #7b1fa2);
+  border-image-slice: 1;
+  box-shadow: 0px 0px 8px rgba(123, 31, 162, 0.6);
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+.error {
+  animation: shake 0.3s ease-in-out;
+  border: 2px solid red !important;
+}
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+}

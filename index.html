@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Management Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <img src="financial.png" alt="Financial Management" />
+      </div>
+      <div class="right">
+        <div class="login-box">
+          <h3>Financial Management Login</h3>
+          <form action="#" method="POST">
+            <div class="input-box">
+              <i class="fas fa-user"></i><img src="user.png" alt="User" />
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                
+                required
+              />
+            </div>
+            
+
+            <div class="input-box">
+              <i class="fas fa-lock"></i><img src="padlock.png" alt="Lock" />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                
+                required
+              />
+              <i
+                class="fas fa-eye toggle-password"
+                onclick="togglePassword()"
+              ></i>
+              <div id="strength-bar"></div>
+            </div>
+
+            <div class="remember">
+              <label><input type="checkbox" /> Remember me</label>
+              <a
+                href="#"
+                style="color: #e91e63; text-decoration: none"
+                class="forgot-password"
+                >Forgot Password?</a
+              >
+            </div>
+            <button type="submit" class="btn" onclick="showLoader()">
+              Login
+            </button>
+            <div class="loader" id="loader"></div>
+            <!-- Button to trigger the loader and redirect -->
+<button type="button" class="btn signup" onclick="showLoader()">Sign Up</button>
+
+<!-- Loader div (hidden initially) -->
+<div id="loader" style="display: none;">
+  <div class="spinner">Loading...</div>
+</div>
+
+            <div class="loader" id="loader"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      function togglePassword() {
+        var passwordInput = document.getElementById("password");
+        var toggleIcon = document.querySelector(".toggle-password");
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          toggleIcon.classList.remove("fa-eye");
+          toggleIcon.classList.add("fa-eye-slash");
+        } else {
+          passwordInput.type = "password";
+          toggleIcon.classList.remove("fa-eye-slash");
+          toggleIcon.classList.add("fa-eye");
+        }
+      }
+
+      function checkStrength() {
+        var password = document.getElementById("password").value;
+        var strengthBar = document.getElementById("strength-bar");
+        if (password.length > 8) {
+          strengthBar.className = "strong";
+        } else if (password.length > 5) {
+          strengthBar.className = "medium";
+        } else {
+          strengthBar.className = "weak";
+        }
+      }
+
+      
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "none";
+          window.location.href = "signup.html";
+        }, 2000);
+      }
+    
+    </script>
+  </body>
+</html>
